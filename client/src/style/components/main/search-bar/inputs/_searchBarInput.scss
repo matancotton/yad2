@@ -1,0 +1,21 @@
+.search-bar__input {
+    display: flex;
+    flex-direction: column;
+
+    .place-holder {
+        opacity: 0.6;
+        font-size: 0.875;
+    }
+
+    .select {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        span {
+            display: block;
+            padding: 0 0.1rem;
+        }
+    }
+}

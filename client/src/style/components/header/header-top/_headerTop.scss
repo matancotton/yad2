@@ -1,0 +1,55 @@
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    width: 95%;
+    font-size: 2rem;
+    height: 100%;
+    height: 60%;
+    border-bottom: 1px solid #eee;
+
+    .header-item__container {
+        height: 100%;
+    }
+
+    .active-link {
+        background: #eeeeee;
+    }
+
+    .header-icons__container {
+        display: flex;
+        width: 25vw;
+
+        @media (min-width: $computerSize) {
+            width: 40vw;
+        }
+    }
+
+    .new-ad-button {
+        background: #0fca80;
+        color: #fff;
+        cursor: pointer;
+        text-decoration: none;
+        font-weight: 700;
+        padding: 0 1.5rem;
+        border: none;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        height: 60%;
+        align-self: center;
+
+        span {
+            font-weight: 700;
+            padding: 0 0.2rem;
+        }
+
+        .plus {
+            padding-top: 0.1rem;
+        }
+
+        &:hover {
+            background: #0e9c64;
+        }
+    }
+}

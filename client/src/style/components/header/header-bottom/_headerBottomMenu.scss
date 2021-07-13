@@ -1,0 +1,19 @@
+.header-bottom__menu {
+    display: flex;
+    justify-content: space-between;
+
+    .header-bottom__menu__item {
+        padding: 1rem;
+        cursor: pointer;
+
+        &:hover {
+            background: #f9f9f9;
+        }
+    }
+
+    #selected {
+        font-weight: 700;
+        color: #ff7100;
+        border-bottom: 3px solid #ff7100;
+    }
+}

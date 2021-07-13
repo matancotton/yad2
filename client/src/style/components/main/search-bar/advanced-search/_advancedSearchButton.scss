@@ -1,0 +1,44 @@
+.advanced-search__botton {
+    color: #000;
+    background: #eee;
+    height: 2.8rem;
+    align-self: flex-end;
+    padding: 1rem;
+
+    .icon {
+        width: 0.8rem;
+        height: 0.8rem;
+        margin-left: 0.2rem;
+        transition: animation 200ms;
+    }
+
+    &:hover {
+        background: #cccccc;
+    }
+
+    .rotate-plus_circle__fowards {
+        animation: rotate-foward 200ms forwards linear;
+    }
+
+    .rotate-plus_circle__backwords {
+        animation: rotate-backword 200ms forwards linear;
+    }
+}
+
+@keyframes rotate-foward {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(45deg);
+    }
+}
+
+@keyframes rotate-backword {
+    from {
+        transform: rotate(45deg);
+    }
+    to {
+        transform: rotate(0);
+    }
+}

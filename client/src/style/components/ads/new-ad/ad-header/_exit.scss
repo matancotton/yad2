@@ -1,0 +1,15 @@
+.exit {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    outline: none;
+
+    span {
+        padding-left: 0.5rem;
+    }
+
+    svg {
+        vertical-align: middle;
+    }
+}

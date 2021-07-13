@@ -1,0 +1,16 @@
+.main-container {
+    background: #f9f9f9;
+    margin: 0.5rem 0;
+    .main-section {
+        width: 60rem;
+        margin: 0 auto;
+
+        img {
+            display: block;
+            margin: 1rem auto;
+            width: 95%;
+            max-width: 60rem;
+            height: 12rem;
+        }
+    }
+}

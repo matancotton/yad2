@@ -1,0 +1,30 @@
+.search-bar__title {
+    display: flex;
+    justify-content: space-between;
+
+    span {
+        cursor: pointer;
+        font-weight: 500;
+        color: #ff7100;
+        border-bottom: 2px dotted #ff7100;
+    }
+
+    button {
+        font-size: 0.8rem;
+        cursor: pointer;
+        color: #ff7100;
+        background: #fff;
+        border-radius: 2px;
+        border: 1px solid #ff7100;
+        padding: 0.5rem;
+
+        &:hover {
+            background: #ff7100;
+            color: #fff;
+        }
+
+        svg {
+            margin: 0 0.2rem;
+        }
+    }
+}

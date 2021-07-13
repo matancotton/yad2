@@ -1,0 +1,76 @@
+.stage__container {
+    width: 100%;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .input__container {
+        margin: 1.5rem 0;
+        select,
+        .input {
+            width: 40%;
+            border-radius: 4px;
+        }
+
+        .input-error {
+            border: 1px solid red;
+        }
+
+        #house-number {
+            width: 20%;
+        }
+    }
+
+    .floors__container {
+        margin: 0;
+        display: flex;
+        width: 60%;
+
+        .input__container {
+            input {
+                width: 90%;
+            }
+        }
+    }
+
+    .checkBox__container {
+        display: flex;
+        cursor: pointer;
+        span {
+            font-size: 0.8rem;
+        }
+    }
+
+    .buttons__container {
+        margin: 1rem 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        button {
+            cursor: pointer;
+            background: #fff;
+            border-radius: 20px;
+            padding: 0.4rem 1.5rem;
+
+            &:hover {
+                background: $orange;
+                color: #fff;
+            }
+        }
+
+        .back {
+            border: 1px solid #ccc;
+        }
+
+        .next {
+            color: $orange;
+            border: 1px solid $orange;
+        }
+    }
+}
+
+.field-error {
+    color: red;
+}

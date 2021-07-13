@@ -1,0 +1,11 @@
+.rooms-options__container {
+    margin: 0;
+    padding: 1rem;
+    margin-right: -50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.rooms-options__select {
+    @extend .input;
+}

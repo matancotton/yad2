@@ -1,0 +1,28 @@
+.header-bottom__icons {
+    display: flex;
+    min-width: 40%;
+    justify-content: space-between;
+}
+
+.header-bottom__icon-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0 0.5rem;
+
+    &:hover {
+        background: #f9f9f9;
+    }
+    .img-container {
+        height: 1rem;
+        width: auto;
+        img {
+            height: 100%;
+            width: 100%s;
+        }
+    }
+
+    span {
+        padding: 0 0.5rem;
+    }
+}

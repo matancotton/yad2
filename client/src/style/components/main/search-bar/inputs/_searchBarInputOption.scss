@@ -1,0 +1,47 @@
+.option-container {
+    position: absolute;
+    cursor: default;
+    background: #fff;
+    width: 180%;
+    margin-top: 2rem;
+    right: 0;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.potion-container__relative {
+    position: relative;
+    width: 100%;
+    box-shadow: none;
+    margin-top: 0rem;
+}
+
+.option {
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+
+    // border-bottom: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+
+    .option-title {
+        display: flex;
+        background: #f9f9f9;
+        padding: 1rem;
+        border-bottom: 1px solid #eee;
+    }
+
+    .inner-option {
+        background: #fff;
+        width: 100%;
+        padding: 1rem 2rem 1rem 0;
+    }
+
+    .arrow {
+        display: block;
+        position: absolute;
+        left: 0;
+        width: 3rem;
+    }
+}

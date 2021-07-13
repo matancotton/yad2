@@ -1,0 +1,9 @@
+.select {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+
+    .select-title {
+        display: flex;
+    }
+}

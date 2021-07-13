@@ -1,0 +1,82 @@
+.advance-search__container {
+    position: absolute;
+    width: 100%;
+    margin-top: 1rem;
+    left: 0;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
+    background: #fff;
+    border-top: 1px solid #ccc;
+
+    .advance-search__submit {
+        padding: 2rem 0;
+        display: flex;
+        justify-content: center;
+
+        button {
+            font-size: 1rem;
+            font-weight: 700;
+            width: 4rem;
+        }
+    }
+}
+
+.advance-search__top {
+    margin: 2rem;
+    border-bottom: 1px solid #ccc;
+    .title {
+        font-weight: 700;
+    }
+
+    .appartment-details {
+        margin: 1rem;
+        display: grid;
+        grid-gap: 2rem;
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+.advance-search__middle {
+    margin: 0 2rem;
+    padding-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+
+    .item {
+        margin-top: 1.5rem;
+    }
+}
+
+.advance-search__bottom {
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+
+    .free-text {
+        margin-left: 2rem;
+        input {
+            min-width: 20rem;
+        }
+    }
+
+    .item {
+        margin-top: 1.5rem;
+    }
+
+    div {
+        .title {
+            padding-bottom: 0.5rem;
+        }
+
+        input {
+            max-width: 8rem;
+        }
+    }
+}
+
+.item {
+    cursor: pointer;
+    display: flex;
+}

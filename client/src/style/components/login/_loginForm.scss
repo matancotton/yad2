@@ -1,0 +1,72 @@
+.login-form {
+    padding: 1rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0;
+    }
+
+    p {
+        margin: 0;
+        color: #999;
+    }
+
+    .check {
+        color: #0fca80;
+        padding-left: 0.3rem;
+    }
+
+    .error-message {
+        display: block;
+        color: #ff2a2b;
+        animation: slide-in-error 400ms ease-out forwards;
+    }
+
+    .login-form__signup {
+        margin-top: 0.5rem;
+        text-align: center;
+
+        span {
+            color: red;
+            cursor: pointer;
+        }
+    }
+
+    .button {
+        border: none;
+        border-radius: 4px;
+        display: block;
+        margin: 0 auto;
+        width: 90%;
+        background: #ff7100;
+        color: #fff;
+        height: 2.5rem;
+        cursor: pointer;
+
+        &:disabled,
+        &:disabled:hover {
+            cursor: not-allowed;
+            background: #eee;
+            border-color: #ccc;
+            color: #ccc;
+        }
+
+        &:hover {
+            background: #d86000;
+        }
+    }
+}
+
+@keyframes slide-in-error {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

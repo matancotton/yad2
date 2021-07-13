@@ -1,0 +1,75 @@
+html {
+    direction: rtl;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: Rubik, sans-serif;
+    font-size: 1rem;
+    font-weight: lighter;
+}
+
+.large-text {
+    font-size: 1.2rem;
+}
+
+.input {
+    outline: none;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    background: #fff;
+    font-size: 0.875rem;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.check-box {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin: 0 0.2rem;
+    border: 1px solid #000;
+    border-radius: 2px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+        border: 1px solid #ff7100;
+    }
+}
+
+.button {
+    border-radius: 2px;
+    color: #fff;
+    border-radius: 3px;
+    color: #fff;
+    border: none;
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+}
+
+.disable {
+    opacity: 0.6;
+}
+
+.clicked {
+    background: #ff7100;
+    border: #ff7100;
+
+    svg {
+        color: #fff;
+        width: 0.8rem;
+        height: 0.8rem;
+    }
+}

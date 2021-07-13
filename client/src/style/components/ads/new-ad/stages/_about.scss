@@ -1,0 +1,108 @@
+.about__container {
+    .input__container {
+        width: 60%;
+    }
+
+    .title {
+        font-weight: bold;
+        margin: 0.5rem 0;
+    }
+
+    .counter__container {
+        width: 40%;
+        height: 2.5rem;
+        border: 1px solid #acacac;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-evenly;
+
+        .button {
+            color: #000;
+            width: 100%;
+            cursor: pointer;
+            background: transparent;
+            border-left: 1px solid #acacac;
+            border-radius: 0;
+
+            &:hover {
+                color: $orange;
+            }
+            &:last-of-type {
+                border: none;
+            }
+        }
+
+        .selected {
+            background: #eee;
+            &:hover {
+                background: #cccccc;
+                color: #000;
+            }
+        }
+    }
+
+    .features__container {
+        width: 100%;
+        margin-bottom: 2rem;
+
+        .features {
+            width: 100%;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+
+            .property {
+                display: flex;
+                cursor: pointer;
+                width: 9rem;
+                padding: 0.5rem;
+                margin: 0.5rem;
+                border: 1px solid #ccc;
+                border-radius: 17px;
+
+                svg {
+                    margin-left: 0.2rem;
+                }
+
+                &:hover {
+                    color: $orange;
+                }
+            }
+
+            .selected {
+                background: #eee;
+
+                &:hover {
+                    background: #ccc;
+                    color: #000;
+                }
+            }
+        }
+    }
+
+    .textarea__container {
+        width: 50%;
+
+        .textarea {
+            width: 100%;
+
+            .textarea__header {
+                display: flex;
+                justify-content: space-between;
+
+                .fade {
+                    opacity: 0.5;
+                }
+            }
+
+            .textarea__input {
+                width: 100% !important;
+                height: 10rem !important;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                resize: none;
+                outline: none;
+            }
+        }
+    }
+}

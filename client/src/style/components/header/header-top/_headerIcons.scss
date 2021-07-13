@@ -1,0 +1,38 @@
+.header-menu__icons {
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: row;
+
+    .icon-container {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        &:hover {
+            background: #f9f9f9;
+        }
+
+        #user {
+            background: #f9f9f9;
+            border-radius: 50%;
+            padding: 0.3rem;
+        }
+
+        img {
+            padding: 0 0.5rem;
+        }
+
+        span {
+            display: none;
+        }
+
+        @media (min-width: $computerSize) {
+            margin: 0 1rem;
+
+            span {
+                display: block;
+            }
+        }
+    }
+}

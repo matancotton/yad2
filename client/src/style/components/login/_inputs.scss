@@ -1,0 +1,28 @@
+.input-container {
+    padding: 0.7rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+
+    input {
+        border: none;
+        outline: none;
+    }
+
+    span {
+        svg {
+            cursor: pointer;
+            opacity: 0.5;
+            transition: 100ms;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.input-error {
+    border: 1px solid #ff2a2b;
+}
