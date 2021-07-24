@@ -5,7 +5,7 @@ const loginReducer = (loginState, action) => {
         case "LOGIN_USER":
             return { user: { ...action.user }, token: action.token };
         case "LOGOUT_USER":
-            return { user: null, token: "" };
+            return {};
         default:
             return { ...loginState };
     }

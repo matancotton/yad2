@@ -1,0 +1,28 @@
+.phone-number {
+    position: relative;
+    grid-area: e;
+    width: 70%;
+    margin: 0.5rem auto;
+    background: #0fca80;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .contact-info {
+        cursor: default;
+        position: absolute;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        color: #000;
+        margin-top: 12rem;
+        width: 100%;
+        text-align: center;
+
+        div {
+            border-bottom: 1px solid #ccc;
+            padding: 1rem;
+        }
+    }
+}

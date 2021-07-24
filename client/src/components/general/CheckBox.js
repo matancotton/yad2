@@ -11,7 +11,6 @@ const CheckBox = ({ isChecked }) => {
         } else {
             setCssState("check-box");
         }
-        return () => {};
     }, [isChecked]);
     return (
         <span className={cssState}>

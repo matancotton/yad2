@@ -1,14 +1,15 @@
 .advance-search__container {
     position: absolute;
+    z-index: 2;
     width: 100%;
-    margin-top: 1rem;
+    margin: 9rem 0;
     left: 0;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
     background: #fff;
     border-top: 1px solid #ccc;
 
     .advance-search__submit {
-        padding: 2rem 0;
+        padding: 1rem 0;
         display: flex;
         justify-content: center;
 
@@ -79,4 +80,8 @@
 .item {
     cursor: pointer;
     display: flex;
+}
+
+.advance-search__input {
+    max-width: 10rem;
 }

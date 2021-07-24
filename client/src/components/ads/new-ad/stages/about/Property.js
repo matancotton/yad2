@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Property = ({ icon, text, featuresState, setFeaturesState }) => {
     const [cssState, setCssState] = useState("property");
+
+    useEffect(() => {
+        if (featuresState.includes(text)) setCssState("property selected");
+    }, [featuresState, text]);
 
     const onFeatureClick = () => {
         const features = [...featuresState];

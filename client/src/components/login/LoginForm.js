@@ -1,22 +1,16 @@
 import React, { useContext, useState } from "react";
-import { useHistory } from "react-router";
 import TextInput from "./inputs/TextInput";
 import PasswordInput from "./inputs/PasswordInput";
-import { LoginModeContext } from "../../contexts/LoginModeContext";
-import {
-    loginModeAction,
-    logoutModeAction,
-} from "../../actions/changeLoginModeAction";
+import { LoginContext } from "../../contexts/LoginContext";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { login, subscribe } from "../../server/auth";
-import { LoginContext } from "../../contexts/LoginContext";
 import { loginAction } from "../../actions/LoginAction";
 import { saveUserOnCookie } from "../../cookies/cookie";
 
-const LoginForm = ({ setShowLoginModal }) => {
-    const { userState, userDispatch } = useContext(LoginContext);
-    const history = useHistory();
+const LoginForm = ({ setServerError }) => {
+    const { userDispatch, setIsModalOpen, isLoginMode, setIsLoginMode } =
+        useContext(LoginContext);
     const [email, setEmail] = useState("");
     const [isValidEmail, setIsValidEmail] = useState(false);
     const [password, setPassword] = useState("");
@@ -27,42 +21,43 @@ const LoginForm = ({ setShowLoginModal }) => {
         useState(false);
     const [errorRepeatedPasswordMessage, setErrorRepeatedPasswordMessage] =
         useState("");
-    const { loginModeState, loginModeDispatch } = useContext(LoginModeContext);
 
     const onSubscribeClick = () => {
-        if (loginModeState) {
-            loginModeDispatch(logoutModeAction());
+        if (isLoginMode) {
+            setIsLoginMode(false);
         } else {
-            loginModeDispatch(loginModeAction());
+            setIsLoginMode(true);
         }
     };
 
     const isValidForm = () => {
-        if (loginModeState) return isValidEmail && isValidPassword;
+        if (isLoginMode) return isValidEmail && isValidPassword;
         return isValidEmail && isValidPassword && isValidRepeatedPassword;
     };
 
     const onSubmitForm = (e) => {
         e.preventDefault();
-        if (loginModeState) {
+        if (isLoginMode) {
             login(email, password)
                 .then(({ data }) => {
                     userDispatch(loginAction(data.user, data.token));
                     saveUserOnCookie(data);
-                    setShowLoginModal(false);
+                    setIsModalOpen(false);
                 })
                 .catch((err) => {
-                    console.log(err.message);
+                    setServerError("שם משתמש או סיסמה לא נכונים");
+                    setTimeout(() => setServerError(""), 2000);
                 });
         } else {
             subscribe(email, password)
                 .then(({ data }) => {
                     userDispatch(loginAction(data.user, data.token));
                     saveUserOnCookie(data);
-                    setShowLoginModal(false);
+                    setIsModalOpen(false);
                 })
                 .catch((err) => {
-                    console.log(err);
+                    setServerError("אחד או יותר מהפרטים אינם תקינים");
+                    setTimeout(() => setServerError(""), 2000);
                 });
         }
     };
@@ -70,8 +65,8 @@ const LoginForm = ({ setShowLoginModal }) => {
     return (
         <form className="login-form" onSubmit={onSubmitForm}>
             <div>
-                <h2>{loginModeState ? "התחברות" : "הרשמה"}</h2>
-                <p>הזן את הפרטים כדי {loginModeState ? "להתחבר" : "להירשם"}</p>
+                <h2>{isLoginMode ? "התחברות" : "הרשמה"}</h2>
+                <p>הזן את הפרטים כדי {isLoginMode ? "להתחבר" : "להירשם"}</p>
             </div>
             <div className="login-form__field">
                 {isValidEmail && (
@@ -97,7 +92,7 @@ const LoginForm = ({ setShowLoginModal }) => {
                     setIsValidPassword={setIsValidPassword}
                     setErrorPasswordMessage={setErrorPasswordMessage}
                     placeHolder={
-                        loginModeState
+                        isLoginMode
                             ? "הקלד סיסמה"
                             : "6 תווים, אותיות באנגלית וספרה"
                     }
@@ -109,14 +104,13 @@ const LoginForm = ({ setShowLoginModal }) => {
                 )}
             </div>
 
-            {!loginModeState && (
+            {!isLoginMode && (
                 <div>
                     {isValidRepeatedPassword && (
                         <FontAwesomeIcon className="check" icon={faCheck} />
                     )}
                     <PasswordInput
                         password={password}
-                        setIsValidPassword={setIsValidPassword}
                         placeHolder={"חזור על הסיסמה שהקלדת"}
                         isRepeatedPassword={true}
                         setIsValidPassword={setIsValidRepeatedPassword}
@@ -138,12 +132,12 @@ const LoginForm = ({ setShowLoginModal }) => {
                     type="submit"
                     disabled={!isValidForm()}
                 >
-                    {loginModeState ? "התחבר" : "הרשמה"}
+                    {isLoginMode ? "התחבר" : "הרשמה"}
                 </button>
                 <div className="login-form__signup">
-                    {loginModeState ? "לא רשום?" : "כבר רשום?"}
+                    {isLoginMode ? "לא רשום?" : "כבר רשום?"}
                     <span onClick={onSubscribeClick}>
-                        {loginModeState ? " להרשמה" : " להתחברות"}
+                        {isLoginMode ? " להרשמה" : " להתחברות"}
                     </span>
                 </div>
             </div>

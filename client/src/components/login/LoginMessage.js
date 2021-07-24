@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { LoginModeContext } from "../../contexts/LoginModeContext";
+import { LoginContext } from "../../contexts/LoginContext";
 
 const LoginMessage = () => {
-    const { loginModeState } = useContext(LoginModeContext);
+    const { isLoginMode } = useContext(LoginContext);
     return (
         <div className="login-message">
             <div>
@@ -13,7 +13,7 @@ const LoginMessage = () => {
             </div>
             <h2>ברוכים הבאים לאתר יד2</h2>
             <div>
-                {loginModeState ? "טוב לראות אותך שוב!" : "הצטרפו לקהילה שלנו!"}
+                {isLoginMode ? "טוב לראות אותך שוב!" : "הצטרפו לקהילה שלנו!"}
             </div>
             <div className="lamp-icon">
                 <img

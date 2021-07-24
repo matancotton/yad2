@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { LoginModeContext } from "../../../contexts/LoginModeContext";
+import { LoginContext } from "../../../contexts/LoginContext";
 
 const PasswordInput = ({
     password,
@@ -13,7 +13,7 @@ const PasswordInput = ({
 }) => {
     const [passwordCssClass, setPasswordCssClass] = useState("input-container");
     const [showPassword, setShowPassword] = useState(false);
-    const { loginModeState } = useContext(LoginModeContext);
+    const { isLoginMode } = useContext(LoginContext);
 
     const onInputPasswordLogin = (e) => {
         onInputPasswordSignup(e);
@@ -22,7 +22,7 @@ const PasswordInput = ({
     const onInputPasswordSignup = (e) => {
         let input = e.target.value;
         if (!!isRepeatedPassword) {
-            if (input == "") {
+            if (input === "") {
                 setErrorPasswordMessage("שדה חובה");
             } else if (input !== password) {
                 setErrorPasswordMessage("סיסמה לא תואמת");
@@ -40,7 +40,7 @@ const PasswordInput = ({
 
         let hasNumber = new RegExp(/[0-9]+/);
         let hasLetter = new RegExp(/[a-zA-Z]+/);
-        if (input == "") {
+        if (input === "") {
             setErrorPasswordMessage("שדה חובה");
         } else if (input.length < 6) {
             setErrorPasswordMessage("מינימום 6 תווים");
@@ -65,17 +65,12 @@ const PasswordInput = ({
         <div className={passwordCssClass}>
             <input
                 type={showPassword ? "text" : "password"}
-                id="password"
                 placeholder={placeHolder}
                 onInput={
-                    loginModeState
-                        ? onInputPasswordLogin
-                        : onInputPasswordSignup
+                    isLoginMode ? onInputPasswordLogin : onInputPasswordSignup
                 }
                 onBlur={
-                    loginModeState
-                        ? onInputPasswordLogin
-                        : onInputPasswordSignup
+                    isLoginMode ? onInputPasswordLogin : onInputPasswordSignup
                 }
             />
             <span onClick={() => setShowPassword(!showPassword)}>

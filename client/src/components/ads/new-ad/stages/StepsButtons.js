@@ -3,7 +3,7 @@ import React from "react";
 const StepsButtons = ({ onNextSubmit, onPreviewSubmit }) => {
     return (
         <div className="buttons__container">
-            <button type="button" className="back" type="button">
+            <button type="button" className="back">
                 חזרה
             </button>
             <button className="next" onClick={onNextSubmit}>

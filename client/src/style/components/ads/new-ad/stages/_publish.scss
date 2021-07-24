@@ -1,0 +1,95 @@
+.publish__title {
+    padding: 2rem 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.plans__container {
+    margin: 1rem 0;
+}
+
+.plan__list {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .plan {
+        text-align: center;
+        width: 31%;
+        padding: 1rem;
+        border-radius: 6px;
+        box-shadow: 0 2px 10px 0 rgba(43, 43, 43, 0.1);
+        background: #fcfbfb;
+
+        .plan__title {
+            font-weight: 700;
+        }
+
+        .crown {
+            cursor: default;
+            margin: 0.5rem auto;
+            background: #ffffff;
+            color: $orange;
+            border: 1px solid $orange;
+            border-radius: 5px;
+            width: 5rem;
+            padding: 0.5rem;
+
+            span {
+                margin: 0 0.1rem;
+            }
+        }
+
+        .plan__img {
+            width: 100%;
+            margin: 0.5rem 0;
+        }
+    }
+
+    .recommended {
+        align-self: flex-start;
+        background: #fefbdc;
+    }
+
+    .plan-details {
+        text-align: right;
+        list-style-type: none;
+        padding: 0;
+        margin: 2rem 0;
+
+        li {
+            padding: 0.2rem 0;
+
+            white-space: nowrap;
+
+            span {
+                padding: 0 0.1rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        .weak {
+            opacity: 0.5;
+        }
+    }
+
+    .plan__button {
+        width: 80%;
+        background: transparent;
+        cursor: pointer;
+        color: $orange;
+        padding: 0.5rem;
+        border: 1px solid $orange;
+        border-radius: 5px;
+        color: $orange;
+
+        span {
+            padding: 0 0.2rem;
+        }
+    }
+
+    .button-recommended {
+        background: $orange;
+        color: #ffffff;
+    }
+}

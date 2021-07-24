@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Redirect, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import { LoginContext } from "../../contexts/LoginContext";
 import LoginModal from "../login/LoginModal";
 

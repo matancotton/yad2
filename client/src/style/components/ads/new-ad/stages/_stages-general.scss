@@ -1,0 +1,48 @@
+.input__container {
+    margin: 1.5rem 0;
+    select,
+    .input {
+        width: 40%;
+        border-radius: 4px;
+    }
+
+    .input-error {
+        border: 1px solid red;
+    }
+
+    #house-number {
+        width: 20%;
+    }
+}
+
+.buttons__container {
+    margin: 1rem 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    button {
+        cursor: pointer;
+        background: #fff;
+        border-radius: 20px;
+        padding: 0.4rem 1.5rem;
+
+        &:hover {
+            background: $orange;
+            color: #fff;
+        }
+    }
+
+    .back {
+        border: 1px solid #ccc;
+    }
+
+    .next {
+        color: $orange;
+        border: 1px solid $orange;
+    }
+}
+
+.field-error {
+    color: red;
+}

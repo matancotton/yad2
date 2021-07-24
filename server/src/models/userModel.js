@@ -22,6 +22,11 @@ const userSchema = new mongoose.Schema(
             trim: true,
             minlength: 6,
         },
+        username: {
+            type: String,
+            trim: true,
+            required: true,
+        },
         tokens: [
             {
                 token: {
@@ -35,6 +40,12 @@ const userSchema = new mongoose.Schema(
         timestamps: true,
     }
 );
+
+userSchema.virtual("posts", {
+    ref: "Post",
+    localField: "_id",
+    foreignField: "user",
+});
 
 userSchema.statics.findByCredentials = async (email, password) => {
     const user = await User.findOne({ email });
@@ -67,6 +78,7 @@ userSchema.methods.toJSON = function () {
     const userObject = user.toObject();
     delete userObject.tokens;
     delete userObject.password;
+    delete userObject.posts;
     return userObject;
 };
 

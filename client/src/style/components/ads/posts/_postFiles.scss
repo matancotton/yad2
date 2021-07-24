@@ -1,0 +1,59 @@
+.post__files {
+    position: relative;
+    padding: 0.5rem;
+
+    .img-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .wish-container {
+        position: absolute;
+        top: 0.1rem;
+        right: 0.1rem;
+        background: #fff;
+        width: 2rem;
+        height: 2rem;
+        border: 1px solid #000;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.6;
+        z-index: 1;
+
+        &:hover {
+            opacity: 1;
+            color: $orange;
+        }
+    }
+
+    .first-image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        border-radius: 4px;
+    }
+
+    .extra-files {
+        padding: 0.3rem;
+        transition: opacity 100ms ease-out;
+        opacity: 0;
+        z-index: 1;
+        border-radius: 10px;
+        left: 40%;
+        top: 40%;
+        background: rgba($color: #000000, $alpha: 0.5);
+
+        svg,
+        span {
+            color: #fff;
+        }
+    }
+}

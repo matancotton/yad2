@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import CounterButton from "./CounterButton";
-const values = [0, 1, 2, 3];
+const values = [0,1,2,3];
 
 const Counter = ({ counter, setCounter }) => {
     return (
@@ -10,7 +10,7 @@ const Counter = ({ counter, setCounter }) => {
                     key={value}
                     counter={counter}
                     setCounter={setCounter}
-                    initialValue={value === 0 ? "ללא" : value}
+                    value={value}
                 />
             ))}
         </div>

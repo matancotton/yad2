@@ -1,0 +1,40 @@
+.stage__contact-info {
+    width: 80%;
+    margin: 2rem 0;
+    display: flex;
+
+    .input__container {
+        margin: 0 2rem;
+        width: 60%;
+    }
+
+    .input {
+        border-radius: 4px;
+    }
+
+    .name {
+        width: 100%;
+    }
+
+    .phone__container {
+        display: flex;
+
+        input {
+            width: 90%;
+        }
+
+        select {
+            width: 40%;
+            flex-direction: row;
+            align-self: flex-end;
+        }
+    }
+}
+
+.add-contact {
+    color: $orange;
+    cursor: pointer;
+    span {
+        margin-left: 0.1rem;
+    }
+}

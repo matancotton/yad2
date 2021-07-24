@@ -5,12 +5,15 @@ import { PublishContext } from "../../../../../contexts/PublishAdContext";
 
 const Payment = () => {
     const { adState, dispatchAd } = useContext(PublishContext);
-    const [squareFeet, setSquareFeet] = useState(0);
-    const [totalFeet, setTotalFeet] = useState(0);
+    const [data] = useState(adState.data[2].form);
+    const [squareFeet, setSquareFeet] = useState(data?.squareFeet || "");
+    const [totalFeet, setTotalFeet] = useState(data?.totalFeet || "");
     const [sizeError, setSizeError] = useState("");
-    const [price, setPrice] = useState(0);
+    const [price, setPrice] = useState(
+        data?.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") || ""
+    );
     const [priceError, setPriceError] = useState("");
-    const [date, setDate] = useState("");
+    const [date, setDate] = useState(data?.date || "");
     const [dateError, setDateError] = useState("");
 
     const onInputMaxFeet = (e) => {
@@ -20,7 +23,7 @@ const Payment = () => {
     };
 
     const onInputPrice = (e) => {
-        const price = e.target.value;
+        const price = parseInt(e.target.value);
         setPrice(price);
         if (priceError.length > 0) {
             if (price > 100000) setPriceError("");
@@ -35,10 +38,11 @@ const Payment = () => {
 
     const onFormSubmit = (e) => {
         e.preventDefault();
+        e.stopPropagation();
         let isValidForm = true;
         if (totalFeet === 0) {
             isValidForm = false;
-            setSizeError('שדה חובה במ"ר סך הכל');
+            setSizeError('שדה חובה גודל במ"ר סך הכל');
         }
         if (price < 100000) {
             isValidForm = false;
@@ -71,16 +75,21 @@ const Payment = () => {
                         onInput={(e) => {
                             setSquareFeet(e.target.value);
                         }}
+                        value={squareFeet}
                     />
                 </div>
                 <div className="input__container">
-                    <div>גודל מ"ר סה"כ הכל*</div>
+                    <div>גודל מ"ר סך הכל*</div>
                     <input
                         type="number"
                         step="0.01"
                         onInput={onInputMaxFeet}
                         className="input"
+                        value={totalFeet}
                     />
+                    {sizeError !== "" && (
+                        <div className="field-error">{sizeError}</div>
+                    )}
                 </div>
                 <div className="input__container">
                     <div>מחיר</div>
@@ -90,7 +99,11 @@ const Payment = () => {
                         className="input"
                         placeholder="סכום מינימלי 100,000"
                         onInput={onInputPrice}
+                        value={price}
                     />
+                    {priceError !== "" && (
+                        <div className="field-error">{priceError}</div>
+                    )}
                 </div>
                 <div className="input__container">
                     <div>תאריך כניסה*</div>
@@ -98,7 +111,11 @@ const Payment = () => {
                         type="date"
                         onInput={onInputDate}
                         className="input"
+                        value={date}
                     />
+                    {dateError !== "" && (
+                        <div className="field-error">{dateError}</div>
+                    )}
                 </div>
                 <StepsButtons onNextSubmit={onFormSubmit} />
             </form>

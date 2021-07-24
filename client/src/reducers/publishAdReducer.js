@@ -1,8 +1,3 @@
-import AboutTheProperty from "../components/ads/new-ad/stages/about/AboutTheProperty";
-import Address from "../components/ads/new-ad/stages/address/Address";
-import Payment from "../components/ads/new-ad/stages/payments/Payment";
-import Pictures from "../components/ads/new-ad/stages/pictures/Pictures";
-
 export const initialAd = {
     data: [
         {
@@ -42,19 +37,30 @@ export const initialAd = {
             number: 6,
         },
     ],
-    components: [<Address />, <AboutTheProperty />, <Payment />, <Pictures />],
 };
 
 const publishAdReducer = (state, action) => {
     switch (action.type) {
+        case "RESET_AD":
+            console.log("reset");
+            return { ...initialAd };
         case "STAGE_DONE":
-            console.log(action.form);
             const newState = { ...state };
             newState.data[action.index].isEnable = false;
             newState.data[action.index].isDone = true;
             newState.data[action.index].form = action.form;
             newState.data[action.index + 1].isEnable = true;
+            newState.data[action.index + 1].isDone = false;
             return newState;
+        case "UPDATE_STAGE":
+            const stages = [...state.data];
+            stages[action.index].isEnable = true;
+            stages[action.index].isDone = false;
+            for (let i = action.index + 1; i < 6; i++) {
+                stages[i].isEnable = false;
+                stages[i].isDone = false;
+            }
+            return { ...state, data: stages };
         default:
             return { ...state };
     }

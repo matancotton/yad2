@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 
-const CounterButton = ({ initialValue, counter, setCounter }) => {
-    const [value, setValue] = useState(initialValue);
+const CounterButton = ({ value, counter, setCounter }) => {
     const [cssClass, setCssClass] = useState(
-        initialValue === 0 ? "button selected" : "button"
+        value === 0 ? "button selected" : "button"
     );
 
     const onButtonClick = () => {
@@ -16,12 +15,12 @@ const CounterButton = ({ initialValue, counter, setCounter }) => {
         } else {
             setCssClass("button");
         }
-    }, [counter]);
+    }, [counter, value]);
 
     return (
-        <button type="button" className={cssClass} onClick={onButtonClick}>
-            {value}
-        </button>
+        <div className={cssClass} onClick={onButtonClick}>
+            {value === 0 ? "ללא" : value}
+        </div>
     );
 };
 

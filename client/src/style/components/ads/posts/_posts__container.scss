@@ -1,0 +1,21 @@
+.posts__container {
+    width: 80%;
+    margin: auto;
+    .posts {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.infinite-scroll-component::-webkit-scrollbar {
+    display: none;
+}
+
+.scroller {
+    overflow: visible !important;
+}
+
+.no-result {
+    font-size: 2rem;
+    text-align: center;
+}

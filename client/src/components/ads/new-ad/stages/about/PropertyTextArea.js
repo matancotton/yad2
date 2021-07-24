@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const PropertyTextArea = ({ placeHolder, value, setValue }) => {
     const onInputText = (e) => {
@@ -16,6 +16,7 @@ const PropertyTextArea = ({ placeHolder, value, setValue }) => {
                 className="textarea__input"
                 onInput={onInputText}
                 placeholder={placeHolder}
+                value={value}
             ></textarea>
         </div>
     );

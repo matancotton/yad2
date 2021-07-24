@@ -1,0 +1,18 @@
+.publish-modal {
+    background: #fff;
+    padding: 3rem;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.5);
+
+    .title {
+        font-size: 1.5rem;
+        color: $orange;
+    }
+
+    .button {
+        background: $orange;
+        padding: 1rem;
+        margin: auto;
+    }
+}

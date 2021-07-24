@@ -1,0 +1,29 @@
+.api-input {
+    position: relative;
+    display: inline;
+    cursor: pointer;
+}
+
+.api-values {
+    position: absolute;
+    width: 100%;
+    border: 1px solid#ccc;
+    z-index: 2;
+
+    .value-item {
+        background: #fff;
+        cursor: pointer;
+        border-bottom: 1px solid #ccc;
+        padding: 0.5rem 0.25rem;
+
+        &:hover {
+            background: #eee;
+        }
+    }
+}
+
+.close-icon {
+    position: absolute;
+    left: 1rem;
+    top: 0.1rem;
+}

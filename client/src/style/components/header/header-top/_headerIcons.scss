@@ -2,6 +2,7 @@
     font-size: 1.5rem;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 
     .icon-container {
         margin: 0;
@@ -23,16 +24,62 @@
             padding: 0 0.5rem;
         }
 
-        span {
+        .extra {
             display: none;
+        }
+
+        .user-dropdown {
+            display: none;
+            position: absolute;
+            margin-top: 10.5rem;
+            background: #fff;
+            height: 0;
+            transition: height 200ms linear;
+            width: 10rem;
+            box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2),
+                0 1px 18px 0 rgba(0, 0, 0, 0.12),
+                0 6px 10px 0 rgba(0, 0, 0, 0.14);
+            z-index: 2;
+
+            div {
+                padding: 1rem;
+                color: #363636;
+
+                span {
+                    margin-right: 0.5rem;
+                }
+
+                &:hover {
+                    background: #eee;
+                }
+            }
+        }
+
+        .logged-in__user {
+            position: relative;
+            padding: 1rem;
+            border-radius: 50%;
+            color: $orange;
+            background: #f9f9f9;
         }
 
         @media (min-width: $computerSize) {
             margin: 0 1rem;
 
-            span {
+            .extra {
                 display: block;
             }
         }
+    }
+
+    .drop:hover {
+        .user-dropdown {
+            display: block;
+            height: auto;
+        }
+    }
+
+    .icon-container:last-of-type {
+        margin-left: 1rem;
     }
 }

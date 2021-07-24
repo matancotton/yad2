@@ -1,17 +1,18 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { LoginContext } from "../../../contexts/LoginContext";
 import { PublishContext } from "../../../contexts/PublishAdContext";
+import adComponentsStages from "../../../values/adValues/adComponentsStages";
 import LoginModal from "../../login/LoginModal";
 import NewAdHeader from "./ad-header/NewAdHeader";
 import Stage from "./Stage";
 
 const NewAd = () => {
-    const { userState } = useContext(LoginContext);
+    const { userState, isModalOpen, setIsModalOpen } = useContext(LoginContext);
     const { adState } = useContext(PublishContext);
-    const [showLoginModal, setShowLoginModal] = useState(false);
 
     useEffect(() => {
-        if (!userState.user) setShowLoginModal(true);
+        console.log(adState);
+        if (!userState.user) setIsModalOpen(true);
     }, [userState.user]);
 
     return (
@@ -23,13 +24,12 @@ const NewAd = () => {
                         <Stage
                             key={stage.number}
                             stage={stage}
-                            component={adState.components[i]}
+                            component={adComponentsStages[i]}
+                            index={i}
                         />
                     ))}
                 </div>
-                {!!showLoginModal && (
-                    <LoginModal setShowLoginModal={setShowLoginModal} />
-                )}
+                {!!isModalOpen && <LoginModal />}
             </div>
         </>
     );

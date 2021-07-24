@@ -1,4 +1,4 @@
-export const loginAction = ({ user, token }) => ({
+export const loginAction = (user, token) => ({
     type: "LOGIN_USER",
     user,
     token,

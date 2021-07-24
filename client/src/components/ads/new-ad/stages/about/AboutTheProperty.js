@@ -10,12 +10,13 @@ import StepsButtons from "../StepsButtons";
 
 const AboutTheProperty = () => {
     const { adState, dispatchAd } = useContext(PublishContext);
-    const [rooms, setRooms] = useState(null);
+    const [data] = useState(adState.data[1].form);
+    const [rooms, setRooms] = useState(data?.roomsNumber || "בחירת מספר חדרים");
     const [roomsError, setRoomsError] = useState(null);
-    const [parking, setParking] = useState(0);
-    const [balcony, setBalcony] = useState(0);
-    const [featuresState, setFeaturesState] = useState([]);
-    const [textArea, setTextArea] = useState("");
+    const [parking, setParking] = useState(data?.parking || 0);
+    const [balcony, setBalcony] = useState(data?.balcony || 0);
+    const [featuresState, setFeaturesState] = useState(data?.features || []);
+    const [textArea, setTextArea] = useState(data?.textArea || "");
 
     const onSelectChange = (e) => {
         const value = e.target.value;
@@ -25,6 +26,7 @@ const AboutTheProperty = () => {
 
     const onFormSubmit = (e) => {
         e.preventDefault();
+        e.stopPropagation();
         if (rooms == null) {
             setRoomsError("שדה חובה מספר חדרים");
             return;
@@ -34,7 +36,7 @@ const AboutTheProperty = () => {
             roomsNumber: rooms,
             parking,
             balcony,
-            featuresState,
+            features: featuresState,
             textArea,
         };
         dispatchAd(moveToNextStageAction(form, 1));
@@ -45,7 +47,7 @@ const AboutTheProperty = () => {
                 <div className="input__container">
                     <div>מספר חדרים</div>
                     <select
-                        defaultValue={"בחירת מספר חדרים"}
+                        defaultValue={rooms}
                         className="input"
                         onChange={onSelectChange}
                     >

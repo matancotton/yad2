@@ -1,4 +1,9 @@
 .search-bar__form {
-    display: flex;
-    justify-content: space-around;
+    align-self: flex-end;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 20% 20% 10% 10% 10% 15% 10%;
+    grid-gap: 1%;
+    grid-template-rows: 1;
+    // flex-wrap: nowrap;
 }

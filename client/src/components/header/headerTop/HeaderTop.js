@@ -1,20 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import HeaderMenu from "./headerMenu/HeaderMenu";
 import HeaderIcons from "../HeaderIcons";
 import NewAdButton from "./NewAdButton";
 import LoginModal from "../../login/LoginModal";
+import { LoginContext } from "../../../contexts/LoginContext";
 
 const HeaderTop = () => {
-    const [showLoginModal, setShowLoginModal] = useState(false);
+    const { isModalOpen } = useContext(LoginContext);
+
     return (
         <div className="header-top">
             <HeaderMenu />
             <div className="header-icons__container">
                 <HeaderIcons />
-                <NewAdButton setShowLoginModal={setShowLoginModal} />
-                {!!showLoginModal && (
-                    <LoginModal setShowLoginModal={setShowLoginModal} />
-                )}
+                <NewAdButton />
+                {!!isModalOpen && <LoginModal />}
             </div>
         </div>
     );

@@ -1,26 +1,29 @@
 import React, { useContext, useState } from "react";
 import { moveToNextStageAction } from "../../../../../actions/publishAdAction";
 import { PublishContext } from "../../../../../contexts/PublishAdContext";
+import { citysApi, streetsApi } from "../../../../../server/govApi";
 import {
     propertyChoice,
     propertiesCondition,
 } from "../../../../../values/adValues/address";
+import ApiTextInput from "../../../../general/ApiTextInput";
 import CheckBox from "../../../../general/CheckBox";
 import StepsButtons from "../StepsButtons";
 
 const Address = () => {
     const { adState, dispatchAd } = useContext(PublishContext);
-    const [showFloor, setShowFloor] = useState(true);
+    const [data] = useState(adState.data[0].form);
+    const [showFloor, setShowFloor] = useState(data?.showFloor);
     const [inputValues, setInputValues] = useState([
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
+        data?.property || "דירה או אולי פנטהאוז?",
+        data?.condition || "משופץ? חדש מקבלן?",
+        data?.city || "",
+        data?.street || "",
+        data?.houseNumber || "",
+        data?.floor || "",
+        data?.maxFloor || "",
+        data?.neighborhood || "",
+        data?.region || "",
     ]);
     const [inputErrors, setInputErrors] = useState([
         "",
@@ -63,10 +66,10 @@ const Address = () => {
             default:
                 setShowFloor(true);
         }
-        onInputChange(0, property, "שדה חובה סוג הנכס");
+        onInputBlur(0, property, "שדה חובה סוג הנכס");
     };
 
-    const onInputChange = (index, field, error) => {
+    const onInputBlur = (index, field, error) => {
         const values = [...inputValues];
         const errors = [...inputErrors];
         const css = [...inputCss];
@@ -81,6 +84,12 @@ const Address = () => {
         setInputValues(values);
         setInputErrors(errors);
         setInputCss(css);
+    };
+
+    const onInputChange = (e, index) => {
+        const values = [...inputValues];
+        values[index] = e.target.value;
+        setInputValues(values);
     };
 
     const setErrors = (fields) => {
@@ -98,6 +107,7 @@ const Address = () => {
 
     const onFormSubmit = (e) => {
         e.preventDefault();
+        e.stopPropagation();
         let validFields = [
             true,
             true,
@@ -111,7 +121,7 @@ const Address = () => {
         ];
         for (let i = 0; i <= 8; i++) {
             if (i !== 3 && i !== 4 && i !== 7 && i !== 8) {
-                if (inputValues[i] == "") {
+                if (inputValues[i] === "") {
                     if (i === 5 || i === 6) {
                         if (!!showFloor) {
                             validFields[i] = false;
@@ -134,6 +144,7 @@ const Address = () => {
                 maxFloor: inputValues[6],
                 neighborhood: inputValues[7],
                 region: inputValues[8],
+                showFloor,
             };
             dispatchAd(moveToNextStageAction(form, 0));
         }
@@ -146,7 +157,7 @@ const Address = () => {
                 <div className="input__container">
                     <div>סוג הנכס*</div>
                     <select
-                        defaultValue="דירה או אולי פנטהאוז?"
+                        defaultValue={inputValues[0]}
                         className={inputCss[0]}
                         onChange={onPropertyChange}
                     >
@@ -170,14 +181,10 @@ const Address = () => {
                 <div className="input__container">
                     <div>מצב הנכס*</div>
                     <select
-                        defaultValue="משופץ? חדש מקבלן?"
+                        defaultValue={inputValues[1]}
                         className={inputCss[1]}
                         onChange={(e) =>
-                            onInputChange(
-                                1,
-                                e.target.value,
-                                "שדה חובה מצב הנכס"
-                            )
+                            onInputBlur(1, e.target.value, "שדה חובה מצב הנכס")
                         }
                     >
                         <option
@@ -199,17 +206,13 @@ const Address = () => {
                 </div>
                 <div className="input__container">
                     <div>יישוב*</div>
-                    <input
-                        type="text"
-                        className={inputCss[2]}
-                        placeholder="איפה נמצא הנכס?"
-                        onBlur={(e) => {
-                            onInputChange(
-                                2,
-                                e.target.value,
-                                "יש לבחור יישוב מתוך הרשימה"
-                            );
-                        }}
+                    <ApiTextInput
+                        cssClass={inputCss[2]}
+                        placeHolder="איפה נמצא הנכס?"
+                        state={inputValues}
+                        index={2}
+                        setState={setInputValues}
+                        inputTextApi={citysApi}
                     />
                     <div className="field-error">
                         {!!inputErrors[2].length > 0 && inputErrors[2]}
@@ -217,13 +220,13 @@ const Address = () => {
                 </div>
                 <div className="input__container">
                     <div>רחוב</div>
-                    <input
-                        type="text"
-                        className="input"
-                        placeholder="הכנסת שם רחוב"
-                        onChange={(e) => {
-                            onInputChange(3, e.target.value, "");
-                        }}
+                    <ApiTextInput
+                        cssClass={inputCss[3]}
+                        placeHolder="הכנסת שם רחוב"
+                        state={inputValues}
+                        index={3}
+                        setState={setInputValues}
+                        inputTextApi={streetsApi}
                     />
                 </div>
                 <div className="input__container">
@@ -232,8 +235,12 @@ const Address = () => {
                         type="number"
                         className="input"
                         id="house-number"
+                        value={inputValues[4]}
                         onChange={(e) => {
-                            onInputChange(4, e.target.value, "");
+                            onInputBlur(4, e.target.value, "");
+                        }}
+                        onInput={(e) => {
+                            onInputChange(e, 4);
                         }}
                     />
                 </div>
@@ -245,12 +252,16 @@ const Address = () => {
                                 type="number"
                                 className={inputCss[5]}
                                 placeholder="הכנסת מספר קומה"
+                                value={inputValues[5]}
                                 onBlur={(e) => {
-                                    onInputChange(
+                                    onInputBlur(
                                         5,
                                         e.target.value,
                                         "שדה חובה קומה"
                                     );
+                                }}
+                                onInput={(e) => {
+                                    onInputChange(e, 5);
                                 }}
                             />
                             <div className="field-error">
@@ -263,12 +274,16 @@ const Address = () => {
                                 type="number"
                                 className={inputCss[6]}
                                 placeholder='הכנסת סה"כ קומות'
+                                value={inputValues[6]}
                                 onBlur={(e) => {
-                                    onInputChange(
+                                    onInputBlur(
                                         6,
                                         e.target.value,
                                         'שדה חובה סה"כ קומות בבניין'
                                     );
+                                }}
+                                onInput={(e) => {
+                                    onInputChange(e, 6);
                                 }}
                             />
                             <div className="field-error">
@@ -282,8 +297,12 @@ const Address = () => {
                     <input
                         type="text"
                         className="input"
+                        value={inputValues[7]}
                         onChange={(e) => {
-                            onInputChange(7, e.target.value, "");
+                            onInputBlur(7, e.target.value, "");
+                        }}
+                        onInput={(e) => {
+                            onInputChange(e, 7);
                         }}
                     />
                 </div>
@@ -293,8 +312,12 @@ const Address = () => {
                         type="text"
                         className="input"
                         placeholder="בחירת אזור מכירה"
+                        value={inputValues[8]}
                         onChange={(e) => {
-                            onInputChange(8, e.target.value, "");
+                            onInputBlur(8, e.target.value, "");
+                        }}
+                        onInput={(e) => {
+                            onInputChange(e, 8);
                         }}
                     />
                 </div>
