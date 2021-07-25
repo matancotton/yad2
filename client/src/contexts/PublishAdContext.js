@@ -5,6 +5,7 @@ export const PublishContext = createContext();
 
 const PublishContextProvider = (props) => {
     const [adState, dispatchAd] = useReducer(publishAdReducer, initialAd);
+
     return (
         <PublishContext.Provider value={{ adState, dispatchAd }}>
             {props.children}

@@ -41,17 +41,22 @@ export const initialAd = {
 
 const publishAdReducer = (state, action) => {
     switch (action.type) {
-        case "RESET_AD":
-            console.log("reset");
-            return { ...initialAd };
         case "STAGE_DONE":
-            const newState = { ...state };
-            newState.data[action.index].isEnable = false;
-            newState.data[action.index].isDone = true;
-            newState.data[action.index].form = action.form;
-            newState.data[action.index + 1].isEnable = true;
-            newState.data[action.index + 1].isDone = false;
-            return newState;
+            // const newState = { ...state };
+            // newState.data[action.index].isEnable = false;
+            // newState.data[action.index].isDone = true;
+            // newState.data[action.index].form = action.form;
+            // newState.data[action.index + 1].isEnable = true;
+            // newState.data[action.index + 1].isDone = false;
+            const data = [...state.data];
+            data[action.index] = { ...data[action.index] };
+            data[action.index].isEnable = false;
+            data[action.index].isDone = true;
+            data[action.index].form = action.form;
+            data[action.index + 1] = { ...data[action.index + 1] };
+            data[action.index + 1].isEnable = true;
+            data[action.index + 1].isDone = false;
+            return { data };
         case "UPDATE_STAGE":
             const stages = [...state.data];
             stages[action.index].isEnable = true;

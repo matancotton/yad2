@@ -11,7 +11,6 @@ const NewAd = () => {
     const { adState } = useContext(PublishContext);
 
     useEffect(() => {
-        console.log(adState);
         if (!userState.user) setIsModalOpen(true);
     }, [userState.user]);
 
