@@ -18,11 +18,16 @@
 }
 
 @media (max-width: $mobileSize) {
+    .main-container {
+        margin: 0;
+    }
+
     .main-section {
         width: 100%;
 
         .commercial {
-            height: 6rem;
+            height: 4rem;
+            width: 90%;
         }
     }
 }

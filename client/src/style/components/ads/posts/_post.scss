@@ -53,24 +53,70 @@
     height: 10rem;
     grid-template-columns: 30% 35% 35%;
     grid-template-areas:
-        "a b d"
-        "a c e";
+        "files address price"
+        "files about phone";
 
     .post__files {
-        grid-area: a;
+        grid-area: files;
     }
     .address {
-        grid-area: b;
+        grid-area: address;
         padding-right: 0.5rem;
     }
 
     .about {
-        grid-area: c;
+        grid-area: about;
         border: none;
         justify-content: flex-start;
     }
 
     .price {
-        grid-area: d;
+        grid-area: price;
+    }
+}
+
+@media (max-width: $mobileSize) {
+    .post {
+        width: 95%;
+        height: 8rem;
+        margin: auto;
+
+        grid-template-columns: 40% 60%;
+        grid-template-rows: 35% 35% 30%;
+        grid-template-areas:
+            "files price"
+            "files address"
+            "files about";
+
+        .post__files {
+            grid-area: files;
+        }
+
+        .address {
+            grid-area: address;
+            margin-bottom: 0.2rem;
+
+            h2,
+            div {
+                margin: 0;
+                font-size: 0.9rem;
+            }
+        }
+
+        .about {
+            grid-area: about;
+            border-right: none;
+            border-top: 1px solid #ccc;
+        }
+
+        .price {
+            grid-area: price;
+            text-align: right;
+            padding: 0;
+
+            .details {
+                display: none;
+            }
+        }
     }
 }

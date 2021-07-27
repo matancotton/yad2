@@ -4,7 +4,6 @@
 
     .sort-select__container {
         display: flex;
-
         align-items: center;
 
         .sort-select {
@@ -47,11 +46,39 @@
 
 @media (max-width: $mobileSize) {
     .sort-bar {
-        width: 100%;
+        width: 90%;
+        margin: 2rem auto;
+        flex-direction: column;
 
         .sort-select__container {
+            width: 90%;
+            margin-bottom: 1rem;
+
             .sort-select {
-                width: 5rem;
+                height: 60%;
+                width: 100%;
+                margin: 0;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+
+                .select-title {
+                    align-items: center;
+                    justify-content: space-between;
+                }
+            }
+        }
+
+        .sort-option__container {
+            width: 100%;
+            margin-top: 6rem;
+        }
+
+        .sort-buttons {
+            width: 100%;
+
+            .sort-button {
+                padding: 0.3rem 0.2rem;
             }
         }
     }

@@ -3,6 +3,7 @@ import PostsContextProvider from "../../contexts/PostsContext";
 import PostsContainer from "../ads/posts/PostsContainer";
 import Header from "../header/Header";
 import MainTitle from "./MainTitle";
+import SearchBarMobile from "./search/search-bar-mobile/SearchBarMobile";
 import SearchBar from "./search/SearchBar";
 
 const Main = () => {
@@ -18,8 +19,9 @@ const Main = () => {
                         alt="כונס נדלן"
                     />
                     <PostsContextProvider>
-                    <SearchBar />
-                    <PostsContainer />
+                        <SearchBar />
+                        <SearchBarMobile />
+                        <PostsContainer />
                     </PostsContextProvider>
                 </div>
             </div>

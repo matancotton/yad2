@@ -19,6 +19,8 @@
 
 @media (max-width: $mobileSize) {
     .main__title {
+        width: 90%;
+        margin: auto;
         button {
             display: none;
         }

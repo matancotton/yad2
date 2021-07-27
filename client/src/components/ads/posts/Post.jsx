@@ -1,12 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PostFiles from "./PostFiles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShekelSign } from "@fortawesome/free-solid-svg-icons";
 import PostExtended from "./PostExtended";
 import PhoneNumber from "./contact-datils/PhoneNumber";
+import MobilePostExtend from "./MobilePostExtend";
 
 const Post = ({ post }) => {
     const [isPostOpen, setIsPostOpen] = useState(false);
+    const [isMobileMode, setIsMobileMode] = useState(false);
+    const resizedToMobile = () => {
+        if (window.screen.width < 650) setIsMobileMode(true);
+        else setIsMobileMode(false);
+    };
+
+    useEffect(() => {
+        resizedToMobile();
+        window.addEventListener("resize", resizedToMobile);
+
+        return () => {
+            window.removeEventListener("resize", resizedToMobile);
+        };
+    }, []);
 
     return (
         <>
@@ -50,9 +65,14 @@ const Post = ({ post }) => {
                     </h2>
                     <div className="details">לחצו לפרטים</div>
                 </div>
-                {isPostOpen && <PhoneNumber contact={post.contact} />}
+                {isPostOpen && !isMobileMode && (
+                    <PhoneNumber contact={post.contact} />
+                )}
             </div>
-            {isPostOpen && <PostExtended post={post} />}
+            {isPostOpen && !isMobileMode && <PostExtended post={post} />}
+            {isPostOpen && isMobileMode && (
+                <MobilePostExtend post={post} setIsPostOpen={setIsPostOpen} />
+            )}
         </>
     );
 };

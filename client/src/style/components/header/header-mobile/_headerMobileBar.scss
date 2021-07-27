@@ -1,11 +1,10 @@
 .header-mobile__bar {
-    width: 100vw;
     display: flex;
     background: $orange;
     color: #fff;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
 
     .hamburger {
         position: absolute;

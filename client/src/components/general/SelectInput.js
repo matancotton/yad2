@@ -20,11 +20,11 @@ const SelectInput = (props) => {
         >
             <div className="select-title">
                 <span className="place-holder">{props.placeHolder}</span>
-                <Arrow
-                    setIsDropDownOpen={setIsDropDownOpen}
-                    isDropDownOpen={isDropDownOpen}
-                />
             </div>
+            <Arrow
+                setIsDropDownOpen={setIsDropDownOpen}
+                isDropDownOpen={isDropDownOpen}
+            />
             {!!isDropDownOpen && props.children}
         </div>
     );
