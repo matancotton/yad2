@@ -1,0 +1,47 @@
+.slider-menu__container {
+    display: block;
+
+    .slider-menu {
+        background: #fff;
+        width: 80vw;
+        height: 100vh;
+        color: #000;
+        display: grid;
+        grid-template-rows: 40% 60%;
+
+        .close-slider__button {
+            position: absolute;
+            cursor: pointer;
+            top: 1rem;
+            right: 2rem;
+            color: #000;
+        }
+    }
+
+    .open-slider {
+        transform: translateX(100%);
+        animation: open-slider 500ms 100ms forwards ease-out;
+    }
+
+    .close-slider {
+        animation: close-slider 500ms 100ms forwards ease-out;
+    }
+}
+
+@keyframes open-slider {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes close-slider {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}

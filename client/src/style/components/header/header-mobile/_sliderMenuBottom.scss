@@ -1,0 +1,16 @@
+.slider-menu__bottom {
+    background: #f9f9f9;
+    padding: 2rem;
+
+    .slider-navigate {
+        display: flex;
+        margin-top: 5%;
+        height: 90%;
+        flex-direction: column;
+        justify-content: space-between;
+
+        span {
+            margin: 0.5rem;
+        }
+    }
+}

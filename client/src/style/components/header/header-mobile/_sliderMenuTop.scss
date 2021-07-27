@@ -1,0 +1,38 @@
+.slider-menu__top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0;
+
+    .content {
+        display: flex;
+        height: 60%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        .icon {
+            background: #eee;
+            padding: 1rem;
+            border-radius: 50%;
+        }
+    }
+
+    .icons {
+        width: 90%;
+        height: 30%;
+        margin-top: 10%;
+        display: flex;
+        justify-content: space-around;
+        font-size: 1.5rem;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+        }
+    }
+}
