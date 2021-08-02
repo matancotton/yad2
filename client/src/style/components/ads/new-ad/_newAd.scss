@@ -10,4 +10,8 @@
     max-width: 55rem;
     margin: 0 auto;
     padding-top: 4rem;
+
+    @media (max-width: $mobileSize) {
+        padding-top: 1rem;
+    }
 }

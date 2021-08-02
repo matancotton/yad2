@@ -7,7 +7,7 @@ const FilesGallery = ({ files, setShowGalleryMode }) => {
     const [images, setImages] = useState([]);
 
     useEffect(() => {
-        const imagesObj = files.map((file, i) => ({
+        const imagesObj = files.map((file) => ({
             original: file,
             thumbnail: file,
         }));

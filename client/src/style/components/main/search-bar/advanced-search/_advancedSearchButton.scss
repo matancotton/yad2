@@ -42,3 +42,10 @@
         transform: rotate(0);
     }
 }
+
+@media (max-width: $mobileSize) {
+    .advanced-search__botton {
+        align-self: flex-start;
+        width: 10rem;
+    }
+}

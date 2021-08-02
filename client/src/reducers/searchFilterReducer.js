@@ -13,7 +13,6 @@ export const initSearchFilter = {
     date: "",
     freeText: "",
     entryNow: false,
-    sortBy: "date",
     villagesOnly: false,
 };
 
@@ -49,6 +48,8 @@ const searchFilterReducer = (state, action) => {
             return { ...state, entryNow: action.value };
         case "VILLAGES_ONLY":
             return { ...state, villagesOnly: action.value };
+        case "RESET_SEARCH_BAR":
+            return { ...initSearchFilter };
         default:
             return { ...state };
     }

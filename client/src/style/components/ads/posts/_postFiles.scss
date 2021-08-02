@@ -57,3 +57,16 @@
         }
     }
 }
+
+@media (max-width: $mobileSize) {
+    .post__files {
+        height: 100%;
+        .wish-container {
+            display: none;
+        }
+
+        .extra-files {
+            opacity: 1;
+        }
+    }
+}

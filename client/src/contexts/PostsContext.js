@@ -4,6 +4,7 @@ import postsReducer, { initialPosts } from "../reducers/postsReducer";
 import searchFilterReducer, {
     initSearchFilter,
 } from "../reducers/searchFilterReducer";
+import sortReducer, { initSortState } from "../reducers/sortReducer";
 import { getPosts } from "../server/posts";
 
 export const PostsContext = createContext();
@@ -16,6 +17,7 @@ const PostsContextProvider = (props) => {
         initSearchFilter
     );
     const limit = 5;
+    const { sortState, sortDispatch } = useReducer(sortReducer, initSortState);
 
     useEffect(() => {
         getPosts(searchFilterState, skip, limit)
@@ -35,6 +37,8 @@ const PostsContextProvider = (props) => {
                 skip,
                 setSkip,
                 limit,
+                sortState,
+                sortDispatch,
             }}
         >
             {props.children}

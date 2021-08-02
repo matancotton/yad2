@@ -95,3 +95,10 @@
         }
     }
 }
+
+@media (max-width: $mobileSize) {
+    .image__container {
+        width: 8rem;
+        height: 7rem;
+    }
+}

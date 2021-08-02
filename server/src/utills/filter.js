@@ -42,7 +42,7 @@ const setFilter = (filterObj) => {
             $lt: maxApartment ? parseFloat(maxApartment) + 1 : Infinity,
         };
     if (date !== "")
-        result["payment.price.date"] = {
+        result["payment.date"] = {
             $gte: new Date(date),
         };
     if (freeText !== "") {

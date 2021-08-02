@@ -2,7 +2,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 2rem 0;
+    justify-content: space-between;
+    margin-top: 2rem;
 
     .content {
         display: flex;
@@ -11,19 +12,44 @@
         align-items: center;
         justify-content: space-between;
 
-        .icon {
-            background: #eee;
-            padding: 1rem;
-            border-radius: 50%;
+        .login {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+
+            .icon {
+                background: #eee;
+                width: 7rem;
+                height: 7rem;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                svg {
+                    font-size: 2rem;
+                }
+
+                span {
+                    color: $orange;
+                    font-size: 2rem;
+                }
+            }
+
+            .login__text {
+                margin: 0.5rem 0;
+                font-size: 2rem;
+            }
         }
     }
 
     .icons {
         width: 90%;
         height: 30%;
-        margin-top: 10%;
         display: flex;
         justify-content: space-around;
+        align-items: center;
         font-size: 1.5rem;
 
         div {
@@ -31,8 +57,40 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-
+            font-size: 2rem;
             text-align: center;
+        }
+    }
+}
+
+@media (max-width: $mobileSize) {
+    .slider-menu__top {
+        .content {
+            height: 60%;
+
+            .login {
+                .icon {
+                    width: 3rem;
+                    height: 3rem;
+
+                    svg,
+                    span {
+                        font-size: 1.2rem;
+                    }
+                }
+                .login__text {
+                    font-size: 1.2rem;
+                }
+            }
+        }
+
+        .icons {
+            height: 70%;
+
+            div {
+                font-size: 1rem;
+                width: 20%;
+            }
         }
     }
 }

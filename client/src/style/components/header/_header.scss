@@ -12,6 +12,24 @@
     box-shadow: 0 5px 6px 0 rgba(24, 7, 7, 0.1);
 }
 
+.tablet-menu {
+    position: absolute;
+    height: 100%;
+    right: 2rem;
+    display: flex;
+    align-items: center;
+
+    .hamburger,
+    .tablet-header__text {
+        font-size: 2rem;
+        margin: 0 0.5rem;
+    }
+
+    .hamburger {
+        cursor: pointer;
+    }
+}
+
 .header-mobile {
     display: none;
 }

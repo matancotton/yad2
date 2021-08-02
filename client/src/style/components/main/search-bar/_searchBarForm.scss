@@ -2,8 +2,24 @@
     align-self: flex-end;
     display: grid;
     width: 100%;
-    grid-template-columns: 20% 20% 10% 10% 10% 15% 10%;
+    grid-template-columns: 20% 20% 10% 10% 10% 25%;
     grid-gap: 1%;
     grid-template-rows: 1;
     // flex-wrap: nowrap;
+
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    @media (max-width: $mobileSize) {
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    @media (max-width: 80rem) {
+        grid-template-columns: 100%;
+    }
 }

@@ -10,7 +10,7 @@ const Post = ({ post }) => {
     const [isPostOpen, setIsPostOpen] = useState(false);
     const [isMobileMode, setIsMobileMode] = useState(false);
     const resizedToMobile = () => {
-        if (window.screen.width < 650) setIsMobileMode(true);
+        if (window.innerWidth < 650) setIsMobileMode(true);
         else setIsMobileMode(false);
     };
 
@@ -50,7 +50,7 @@ const Post = ({ post }) => {
                     <div>
                         <div>
                             {post.payment.squareFeet
-                                .toString()
+                                ?.toString()
                                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                         </div>
                         <div>מ"ר</div>

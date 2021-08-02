@@ -20,6 +20,10 @@
         }
     }
 
+    .sort-option__container {
+        margin-top: 1.5rem;
+    }
+
     .sort-buttons {
         display: flex;
         align-items: center;
@@ -71,7 +75,7 @@
 
         .sort-option__container {
             width: 100%;
-            margin-top: 6rem;
+            margin-top: 10rem;
         }
 
         .sort-buttons {

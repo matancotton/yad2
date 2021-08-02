@@ -25,7 +25,6 @@
 @import "./components/main/search-bar/inputs/searchBarInput";
 @import "./components/main/search-bar/inputs/streetInput";
 @import "./components/main/search-bar/searchBarSelect";
-@import "./components/main/search-bar/inputs/propertySelect";
 @import "./components/main/search-bar//inputs/searchBarInputOption";
 @import "./components/main/search-bar/inputs/roomsInput";
 @import "./components/main/search-bar/inputs/priceInput";
@@ -45,6 +44,7 @@
 @import "./components/ads/new-ad/stages/publishModal";
 @import "./components/ads/posts/posts__container";
 @import "./components/main/sort-bar/sortBar";
+@import "./components/main/sort-bar/sortOption";
 @import "./components/ads/posts/post.scss";
 @import "./components/ads/posts/postFiles";
 @import "./components/ads/posts/postExtended";
@@ -55,3 +55,4 @@
 @import "./components/header/header-mobile/sliderMenu";
 @import "./components/header/header-mobile/sliderMenuTop";
 @import "./components/header/header-mobile/sliderMenuBottom";
+@import "./components/ads/posts/postExtendedMobile";

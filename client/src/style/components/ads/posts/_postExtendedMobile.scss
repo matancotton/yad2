@@ -1,0 +1,36 @@
+.mobile-post__extended__container {
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+
+    .close-post {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        font-size: 2rem;
+    }
+}
+
+.mobile-post__extended {
+    width: 80%;
+    height: 100%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .image-gallery-image {
+        height: 12rem;
+        width: 100%;
+    }
+
+    .image-gallery-thumbnails-container {
+        display: none;
+    }
+}

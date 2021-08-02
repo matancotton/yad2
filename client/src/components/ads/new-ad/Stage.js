@@ -41,7 +41,7 @@ const Stage = ({ stage, component, index }) => {
                     <span>
                         <FontAwesomeIcon icon={faPencilAlt} />
                     </span>
-                    <span>עריכה</span>
+                    <span className="edit-text">עריכה</span>
                 </div>
             )}
 

@@ -12,4 +12,15 @@
     svg {
         vertical-align: middle;
     }
+
+    @media (max-width: $mobileSize) {
+        padding: 0;
+        border-radius: 50%;
+        width: 2rem;
+        height: 2rem;
+
+        span {
+            display: none;
+        }
+    }
 }

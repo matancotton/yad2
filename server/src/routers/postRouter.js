@@ -2,6 +2,7 @@ const express = require("express");
 const auth = require("../middleware/auth");
 const Post = require("../models/postModel");
 const setFilter = require("../utills/filter");
+const setSort = require("../utills/sort");
 
 const router = new express.Router();
 
@@ -24,10 +25,15 @@ router.get("/posts/all", async (req, res) => {
         const skip = parseInt(req.query.skip);
         const limit = parseInt(req.query.limit);
         const filter = req.query.filter;
+        const sort = req.query.sort;
+        const sortFinal = setSort(sort);
         const filterObj = JSON.parse(filter);
         const filterFinal = setFilter(filterObj);
         console.log("skip", skip);
-        const posts = await Post.find(filterFinal).skip(skip).limit(limit);
+        const posts = await Post.find(filterFinal)
+            .sort(sortFinal)
+            .skip(skip)
+            .limit(limit);
         if (!posts) {
             return res.status(404).send({
                 status: 404,
@@ -35,7 +41,7 @@ router.get("/posts/all", async (req, res) => {
             });
         }
 
-        console.log(posts.length);
+        console.log(posts);
         console.log("/////////////");
 
         res.send(posts);

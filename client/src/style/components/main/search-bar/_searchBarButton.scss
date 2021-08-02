@@ -17,3 +17,10 @@
         padding-right: 0.5rem;
     }
 }
+
+@media (max-width: $mobileSize) {
+    .search-button {
+        display: inline-block;
+        width: 8rem;
+    }
+}

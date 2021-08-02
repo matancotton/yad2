@@ -93,3 +93,26 @@
         color: #ffffff;
     }
 }
+
+@media (max-width: $mobileSize) {
+    .plan__list {
+        flex-direction: column;
+
+        .plan {
+            width: 100%;
+            margin: 0.5rem 0;
+
+            .plan__title {
+                text-align: right;
+            }
+            .crown {
+                margin: 0.2rem 0;
+                padding: 0.3rem;
+            }
+
+            .plan__img {
+                width: 50%;
+            }
+        }
+    }
+}

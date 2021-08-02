@@ -17,21 +17,16 @@ const PostsContainer = () => {
     } = useContext(PostsContext);
 
     const [hasMorePosts, setHasMorePosts] = useState(true);
-    const isLoadingRef = useRef(false);
 
     const fetchMorePosts = () => {
-        if (!isLoadingRef.current) {
-            isLoadingRef.current = true;
-            getPosts(searchFilterState, skip, limit)
-                .then((data) => {
-                    if (data.length > 0) postsDispatch(addPostsAction(data));
-                    if (data.length < limit) setHasMorePosts(false);
-                    isLoadingRef.current = false;
-                })
-                .catch((err) => {
-                    postsDispatch(setPostsAction([]));
-                });
-        }
+        getPosts(searchFilterState, skip, limit)
+            .then((data) => {
+                if (data.length > 0) postsDispatch(addPostsAction(data));
+                if (data.length < limit) setHasMorePosts(false);
+            })
+            .catch((err) => {
+                postsDispatch(setPostsAction([]));
+            });
     };
 
     useEffect(() => {

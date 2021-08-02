@@ -1,0 +1,8 @@
+.sort-option {
+    padding: 1rem 0.5rem;
+    border-bottom: 1px solid #ccc;
+
+    @media (max-width: $mobileSize) {
+        padding: 0.5rem;
+    }
+}

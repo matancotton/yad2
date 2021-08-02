@@ -44,3 +44,9 @@
         width: 3rem;
     }
 }
+
+@media (max-width: $mobileSize) {
+    .option-container {
+        width: 100%;
+    }
+}

@@ -38,3 +38,23 @@
         margin-left: 0.1rem;
     }
 }
+
+@media (max-width: $mobileSize) {
+    .stage__contact-info {
+        width: 100%;
+
+        .input__container {
+            width: 80%;
+            margin: 0;
+            margin-left: 1rem;
+        }
+
+        .phone__container {
+            width: 100%;
+
+            select {
+                width: 60%;
+            }
+        }
+    }
+}

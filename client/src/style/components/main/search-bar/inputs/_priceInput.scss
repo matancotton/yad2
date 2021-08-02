@@ -1,3 +1,7 @@
 .price-input {
     align-self: flex-end;
+
+    @media (max-width: $mobileSize) {
+        width: 100%;
+    }
 }

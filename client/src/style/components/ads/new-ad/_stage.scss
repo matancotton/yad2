@@ -59,3 +59,17 @@
     background: #f9f9f9;
     color: #acacac;
 }
+
+@media (max-width: $mobileSize) {
+    .stage {
+        margin: 0.2rem;
+
+        .edit {
+            left: 1rem;
+
+            .edit-text {
+                display: none;
+            }
+        }
+    }
+}

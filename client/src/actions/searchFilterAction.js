@@ -72,3 +72,7 @@ export const villagesOnlyAction = (value) => ({
     type: "VILLAGES_ONLY",
     value,
 });
+
+export const resetSearchBarAction = () => ({
+    type: "RESET_SEARCH_BAR",
+});

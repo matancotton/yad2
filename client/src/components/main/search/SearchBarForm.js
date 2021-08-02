@@ -13,11 +13,13 @@ const SearchBarForm = ({ isDropDownOpen, setIsDropDownOpen }) => {
             <PropertyInput />
             <RoomInput />
             <PriceInput />
-            <AdvanceSearchButton
-                isDropDownOpen={isDropDownOpen}
-                setIsDropDownOpen={setIsDropDownOpen}
-            />
-            <SearchButton />
+            <div className="buttons">
+                <AdvanceSearchButton
+                    isDropDownOpen={isDropDownOpen}
+                    setIsDropDownOpen={setIsDropDownOpen}
+                />
+                <SearchButton />
+            </div>
         </form>
     );
 };

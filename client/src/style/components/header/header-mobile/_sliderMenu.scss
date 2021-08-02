@@ -15,6 +15,15 @@
             top: 1rem;
             right: 2rem;
             color: #000;
+            svg {
+                width: 4rem;
+                height: 4rem;
+
+                @media (max-width: $mobileSize) {
+                    width: 2rem;
+                    height: 2rem;
+                }
+            }
         }
     }
 
@@ -24,7 +33,7 @@
     }
 
     .close-slider {
-        animation: close-slider 500ms 100ms forwards ease-out;
+        animation: close-slider 350ms 100ms forwards ease-out;
     }
 }
 

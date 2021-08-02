@@ -26,3 +26,9 @@
         }
     }
 }
+
+@media (max-width: $mobileSize) {
+    .phone-number {
+        padding: 0.5rem 0;
+    }
+}

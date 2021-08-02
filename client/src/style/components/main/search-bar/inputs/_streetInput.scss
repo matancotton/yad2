@@ -28,4 +28,8 @@
         text-align: center;
         background: #eee;
     }
+
+    @media (max-width: $mobileSize) {
+        width: 100%;
+    }
 }

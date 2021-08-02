@@ -16,6 +16,7 @@ const RoomInput = () => {
             setPlaceholder(
                 `${searchFilterState.minRooms} - ${searchFilterState.maxRooms}`
             );
+        else setPlaceholder("חדרים");
     }, [searchFilterState.minRooms, searchFilterState.maxRooms]);
 
     return (

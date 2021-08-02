@@ -1,6 +1,7 @@
 .search-bar__title {
     display: flex;
     justify-content: space-between;
+    width: 100%;
 
     span {
         cursor: pointer;
@@ -25,6 +26,21 @@
 
         svg {
             margin: 0 0.2rem;
+        }
+    }
+}
+
+@media (max-width: $mobileSize) {
+    .search-bar__title {
+        height: 15%;
+        font-size: 0.8rem;
+
+        .large-text {
+            font-size: 1.2rem;
+        }
+
+        button {
+            display: none;
         }
     }
 }

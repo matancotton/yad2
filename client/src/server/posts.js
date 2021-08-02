@@ -19,13 +19,14 @@ export const uploadPost = async (token, post) => {
     }
 };
 
-export const getPosts = async (filter, skip, limit) => {
+export const getPosts = async (filter, skip, limit, sort) => {
     try {
         const result = await Axios.get(serverUrl + "posts/all", {
             params: {
                 filter,
                 limit,
                 skip,
+                sort,
             },
         });
         return result.data;
